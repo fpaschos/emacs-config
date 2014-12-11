@@ -174,3 +174,7 @@
 (require 'neotree)
 (global-set-key [f8] 'neotree-toggle)
 
+;;Enable company mode and cider autocomplete
+(add-hook 'after-init-hook 'global-company-mode)
+(add-hook 'cider-repl-mode-hook 'company-mode)
+(add-hook 'cider-mode-hook 'company-mode)
