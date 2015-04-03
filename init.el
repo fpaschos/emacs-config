@@ -131,6 +131,9 @@
 (load "setup-clojure.el")
 (load "setup-js.el")
 
+;; Load haskell-mode
+ ;; (load "~/emacs.d/elpa/haskell-mode/haskell-site-file")
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -181,3 +184,25 @@
 
 ;;Enable autorevert
 (global-auto-revert-mode t)
+
+
+;;Haskell mode configuration
+
+(require 'haskell-interactive-mode)
+(require 'haskell-process)
+
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
+
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
+;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
+
+;; Use cabal repl as repl (uncomment to use).
+;; (custom-set-variables
+  ;; '(haskell-process-type 'cabal-repl))
+
+;; Use ghci as repl
+(custom-set-variables
+  '(haskell-process-type 'ghci))
