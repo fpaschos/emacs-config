@@ -202,23 +202,23 @@
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 ;;(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
 
-;; Enable ghc-mode (freezes??)
-;; (autoload 'ghc-init "ghc" nil t)
-;; (autoload 'ghc-debug "ghc" nil t)
-;; (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+;; Enable ghc-mode
+(autoload 'ghc-init "ghc" nil t)
+(autoload 'ghc-debug "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
-;; Enable haskell company
+;; Enable haskell company (freezes)
 (add-hook 'haskell-mode-hook 'company-mode)
-;; (add-to-list 'company-backends 'company-ghc)
-;; (custom-set-variables '(company-ghc-show-info t))
+(add-to-list 'company-backends 'company-ghc)
+(custom-set-variables '(company-ghc-show-info t))
 
 ;; Use cabal repl as repl (uncomment to use).
-;; (custom-set-variables
-  ;; '(haskell-process-type 'cabal-repl))
+(custom-set-variables
+  '(haskell-process-type 'cabal-repl))
 
 ;; Use ghci as repl
-(custom-set-variables
-  '(haskell-process-type 'ghci))
+;; (custom-set-variables
+  ;; '(haskell-process-type 'ghci))
 
 ;; Enable hasktags module navigations (requires hasktags) 
 (let ((my-cabal-path (expand-file-name "~/.cabal/bin")))
